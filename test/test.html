@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery.serializeDeepObject Test</title>
+    <link href="http://cdn.bootcss.com/mocha/1.19.0/mocha.css" rel="stylesheet">
+</head>
+<body>
+    <div id="mocha"></div>
+    <div id="container"></div>
+<script type="text/x-templet" id="normalFormTpl">
+<form>
+    <input type="text" name="name" value="bob" />
+    <input type="text" name="age" value="22" />
+    <input type="checkbox" name="like" value="eat" checked />
+    <input type="checkbox" name="like" value="drink" checked />
+    <input type="checkbox" name="like" value="play" />
+</form>
+</script>
+<script type="text/x-templet" id="objectFormTpl">
+<form>
+    <input type="text" name="user.name" value="bob" />
+    <input type="text" name="user.age" value="22" />
+    <input type="checkbox" name="user.like" value="eat" checked />
+    <input type="checkbox" name="user.like" value="drink" />
+    <input type="checkbox" name="user.like" value="play" />
+    <input type="radio" name="user.sex" value="male" checked />
+    <input type="radio" name="user.sex" value="female" />
+</form>
+</script>
+<script type="text/x-templet" id="arrayFormTpl">
+<form>
+    <input type="text" name="user[0].name" value="bob" />
+    <input type="text" name="user[0].age" value="22" />
+    <input type="checkbox" name="user[0].like" value="eat" checked />
+    <input type="checkbox" name="user[0].like" value="drink" />
+    <input type="checkbox" name="user[0].like" value="play" />
+    <input type="radio" name="user[0].sex" value="male" checked />
+    <input type="radio" name="user[0].sex" value="female" />
+
+    <input type="text" name="user[1].name" value="aoo" />
+    <input type="text" name="user[1].age" value="22" />
+    <input type="checkbox" name="user[1].like" value="eat" checked/>
+    <input type="checkbox" name="user[1].like" value="drink" />
+    <input type="checkbox" name="user[1].like" value="play" />
+    <input type="radio" name="user[1].sex" value="male" checked />
+    <input type="radio" name="user[1].sex" value="female" />
+</form>
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<!--<script src="http://cdn.bootcss.com/json2/20130526/json2.min.js"></script>-->
+<script src="http://cdn.bootcss.com/mocha/1.18.2/mocha.min.js"></script>
+<script src="http://cdn.bootcss.com/chai/1.9.1/chai.min.js"></script>
+<script>mocha.setup('bdd')</script>
+<script>expect = chai.expect</script>
+<script src="../jQuery.serializeDeepObject.js"></script>
+<script src="serializeDeepObject_test.js"></script>
+<script>mocha.run()</script>
+</body>
+</html>
