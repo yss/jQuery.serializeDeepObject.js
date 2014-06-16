@@ -24,10 +24,14 @@ function formatObject(name, value, result, isArray) {
             result = result[k];
         };
         
+    if ('string' === typeof value) {
+        value = $.trim(value);
+        if ('' === value) {
+            return;
+        }
+    }
     if (/^\d+$/.test(value)) {
         value = parseInt(value, 10);
-    } else {
-        value = $.trim(value);
     }
 
     while((key = nameList.shift())) {
