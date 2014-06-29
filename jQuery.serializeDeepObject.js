@@ -30,7 +30,7 @@ function formatObject(name, value, result, isArray) {
             return;
         }
     }
-    if (/^\d+$/.test(value)) {
+    if (/^[-+]?\d+$/.test(value)) {
         value = parseInt(value, 10);
     }
 
