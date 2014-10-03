@@ -31,7 +31,7 @@ function formatObject(name, value, result, isArray) {
         }
     }
     if (/^[-+]?\d+(?:\.\d+)?$/.test(value)) {
-        value = parseInt(value, 10);
+        value = parseFloat(value, 10);
     }
 
     while((key = nameList.shift())) {
