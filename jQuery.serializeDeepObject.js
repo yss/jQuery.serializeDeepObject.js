@@ -29,9 +29,9 @@ function formatObject(name, value, result, isArray) {
         if ('' === value) {
             return;
         }
-    }
-    if (value.split('.')[0].length < 11 && /^[-+]?\d+(?:\.\d+)?$/.test(value)) {
-        value = parseFloat(value, 10);
+        if (value.split('.')[0].length < 11 && /^[-+]?\d+(?:\.\d+)?$/.test(value)) {
+            value = parseFloat(value, 10);
+        }
     }
 
     while((key = nameList.shift())) {
