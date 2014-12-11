@@ -1,0 +1,24 @@
+{
+  "name": "jQuery.serializeDeepObject.js",
+  "main": "jQuery.serializeDeepObject.js",
+  "version": "1.1.1",
+  "homepage": "https://github.com/yss/jQuery.serializeDeepObject.js",
+  "authors": [
+    "yss <yss.nelson@gmail.com>"
+  ],
+  "description": "the upgrade of jQuery.serializeObject.js，specially for nosql database, like mongodb.",
+  "keywords": [
+    "jQuery",
+    "serializeObject",
+    "serializeDeepObject"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

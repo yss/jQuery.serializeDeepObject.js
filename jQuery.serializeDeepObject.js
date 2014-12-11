@@ -30,7 +30,7 @@ function formatObject(name, value, result, isArray) {
             return;
         }
     }
-    if (/^[-+]?\d+(?:\.\d+)?$/.test(value)) {
+    if (value.split('.')[0].length < 11 && /^[-+]?\d+(?:\.\d+)?$/.test(value)) {
         value = parseFloat(value, 10);
     }
 
