@@ -29,7 +29,8 @@ function formatObject(name, value, result, isArray) {
         if ('' === value) {
             return;
         }
-        if (value.split('.')[0].length < 11 && /^[-+]?\d+(?:\.\d+)?$/.test(value)) {
+        // 0123 is not a number
+        if (value === "0" || (value.split('.')[0].length < 11 && /^[-+]?[1-9]\d*(?:\.\d+)?$/.test(value))) {
             value = parseFloat(value, 10);
         }
     }
