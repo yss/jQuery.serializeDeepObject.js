@@ -4,15 +4,16 @@
  */
 (function($) {
 
-function isCheckBox(elem) {
-    return (elem.length ? elem[0] : elem).type === 'checkbox';
+function getType(elem) {
+    return (elem.length ? elem[0] : elem).type;
 }
+
 
 function isExist(value) {
     return 'undefined' !== typeof value && null !== value;
 }
 
-function formatObject(name, value, result, isArray) {
+function formatObject(name, value, result, type) {
     var nameList = name.split('.'),
         node,
         key,
@@ -29,9 +30,8 @@ function formatObject(name, value, result, isArray) {
         if ('' === value) {
             return;
         }
-        // 0123 is not a number
-        if (value === "0" || (value.split('.')[0].length < 11 && /^[-+]?[1-9]\d*(?:\.\d+)?$/.test(value))) {
-            value = parseFloat(value, 10);
+        if ('number' === type) {
+            value = parseFloat(value);
         }
     }
 
@@ -49,7 +49,7 @@ function formatObject(name, value, result, isArray) {
                     if (nameList.length) {
                         setValue(k);
                     } else {
-                        result[k] = isArray ? [value] : value;
+                        result[k] = 'checkbox' === type ? [value] : value;
                     }
                 }
             }
@@ -65,7 +65,7 @@ function formatObject(name, value, result, isArray) {
                         result[key] = [result[key], value];
                     }
                 } else {
-                    result[key] = isArray ? [value] : value;
+                    result[key] = 'checkbox' === type ? [value] : value;
                 }
             }
         }
@@ -75,7 +75,7 @@ $.fn.serializeDeepObject = function (callback) {
     "use strict";
     var result = {}, _this = this;
     $.each(_this.serializeArray(), function(i, elem) {
-        formatObject(elem.name, elem.value, result, isCheckBox(_this[0].elements[elem.name]));
+        formatObject(elem.name, elem.value, result, getType(_this[0].elements[elem.name]));
     });
     callback && callback(result);
     return result;

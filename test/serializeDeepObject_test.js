@@ -12,7 +12,7 @@ var normalValue = {
 var objectValue = {
     user: {
         name: 'bob',
-        age: 22,
+        age: '22',
         like: ['eat'],
         sex: 'male'
     }
