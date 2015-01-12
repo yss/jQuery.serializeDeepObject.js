@@ -2,6 +2,12 @@
 
 the upgrade of jQuery.serializeObject.js，specially for use mongodb, nosql database.
 
+## Note
+
+It is only support `number` when resolve the value.
+
+Also you can add `data-value-type="number"` in the node for the type is not `number`.
+
 ## Example
 
 ``` html
@@ -10,6 +16,7 @@ the upgrade of jQuery.serializeObject.js，specially for use mongodb, nosql data
     <input type="number" name="user[0].age" value="16" />
     <input type="text" name="user[1].name" value="aoo" />
     <input type="checkbox" name="school" value="MIT" checked /> 
+    <input type="radio" name="sex" data-value-type="number" value="0" checked />
 </form>
 <script src="jQuery.serializeDeepObject.js"></script>
 console.log($(form).eq(0).serializeDeepObject());
@@ -29,6 +36,7 @@ The Output is:
             name: "aoo"
         }
     ],
-    school: ["MIT"]
+    school: ["MIT"],
+    sex: 0
 }
 ```

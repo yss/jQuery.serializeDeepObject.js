@@ -5,9 +5,9 @@
 (function($) {
 
 function getType(elem) {
-    return (elem.length ? elem[0] : elem).type;
+    elem = elem.length ? elem[0] : elem;
+    return elem.getAttribute('data-value-type') || elem.type;
 }
-
 
 function isExist(value) {
     return 'undefined' !== typeof value && null !== value;
@@ -15,7 +15,6 @@ function isExist(value) {
 
 function formatObject(name, value, result, type) {
     var nameList = name.split('.'),
-        node,
         key,
         k,
         setValue = function (k, v) {
