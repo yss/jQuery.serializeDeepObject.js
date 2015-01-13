@@ -39,7 +39,7 @@ var numberValue = {
     user: {
         name: 'bob',
         age: 22,
-        like: ['eat'],
+        like: [0],
         sex: 0
     },
     city: 1

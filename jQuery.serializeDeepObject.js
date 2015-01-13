@@ -10,7 +10,7 @@ function getType(elem) {
     if (elem.nodeName.toUpperCase() === 'OPTION') {
         elem = elem.parentNode;
     }
-    return elem.getAttribute('data-value-type') || elem.type;
+    return [elem.getAttribute('data-value-type'), elem.type];
 }
 
 function isExist(value) {
@@ -33,7 +33,7 @@ function formatObject(name, value, result, type) {
         if ('' === value) {
             return;
         }
-        if ('number' === type) {
+        if (~type.indexOf('number')) {
             value = parseFloat(value);
         }
     }
@@ -52,7 +52,7 @@ function formatObject(name, value, result, type) {
                     if (nameList.length) {
                         setValue(k);
                     } else {
-                        result[k] = 'checkbox' === type ? [value] : value;
+                        result[k] = ~type.indexOf('checkbox') ? [value] : value;
                     }
                 }
             }
@@ -68,7 +68,7 @@ function formatObject(name, value, result, type) {
                         result[key] = [result[key], value];
                     }
                 } else {
-                    result[key] = 'checkbox' === type ? [value] : value;
+                    result[key] = ~type.indexOf('checkbox') ? [value] : value;
                 }
             }
         }
