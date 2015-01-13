@@ -3,6 +3,7 @@ var $container = $('#container');
 var $normalFormTpl = $('#normalFormTpl').html();
 var $objectFormTpl = $('#objectFormTpl').html();
 var $arrayFormTpl = $('#arrayFormTpl').html();
+var $valueTypeFormTpl = $('#valueTypeFormTpl').html();
 
 var normalValue = {
     name: 'bob',
@@ -34,6 +35,16 @@ var arrayValue = {
     ]
 };
 
+var numberValue = {
+    user: {
+        name: 'bob',
+        age: 22,
+        like: ['eat'],
+        sex: 0
+    },
+    city: 1
+};
+
 describe('jQuery.serializeDeepObject', function() {
     describe('it is a normal form', function() {
         it('Content is: ' + $normalFormTpl);
@@ -59,6 +70,15 @@ describe('jQuery.serializeDeepObject', function() {
             $container.html($arrayFormTpl);
             expect($container.find('form').serializeDeepObject())
                 .to.deep.equal(arrayValue);
+        });
+    });
+
+    describe('it is test for number type', function() {
+        it('Content is: ' + $valueTypeFormTpl);
+        it('should be ' + JSON.stringify(numberValue), function() {
+            $container.html($valueTypeFormTpl);
+            expect($container.find('form').serializeDeepObject())
+                .to.deep.equal(numberValue);
         });
     });
 });

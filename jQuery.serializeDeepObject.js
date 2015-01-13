@@ -6,6 +6,10 @@
 
 function getType(elem) {
     elem = elem.length ? elem[0] : elem;
+    // fix for the elem is option
+    if (elem.nodeName.toUpperCase() === 'OPTION') {
+        elem = elem.parentNode;
+    }
     return elem.getAttribute('data-value-type') || elem.type;
 }
 

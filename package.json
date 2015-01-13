@@ -1,7 +1,7 @@
 {
   "name": "jQuery.serializeDeepObject.js",
   "description": "the upgrade of jQuery.serializeObject.js，specially for nosql database, like mongodb.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "homepage": "https://github.com/yss/",
   "author": {
     "name": "yansong",

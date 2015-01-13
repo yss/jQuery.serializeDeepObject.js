@@ -47,6 +47,21 @@
     <input type="radio" name="user[1].sex" value="female" />
 </form>
 </script>
+<script type="text/x-templet" id="valueTypeFormTpl">
+<form>
+    <input type="text" name="user.name" value="bob" />
+    <input type="number" name="user.age" value="22" />
+    <input type="checkbox" name="user.like" value="eat" checked />
+    <input type="checkbox" name="user.like" value="drink" />
+    <input type="checkbox" name="user.like" value="play" />
+    <input type="radio" name="user.sex" data-value-type="number" value="0" checked />
+    <input type="radio" name="user.sex" data-value-type="number" value="1" />
+    <select name="city" data-value-type="number">
+        <option value="1">city1</option>
+        <option value="2">city2</option>
+    </select>
+</form>
+</script>
 <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <!--<script src="http://cdn.bootcss.com/json2/20130526/json2.min.js"></script>-->
 <script src="http://cdn.bootcss.com/mocha/1.18.2/mocha.min.js"></script>

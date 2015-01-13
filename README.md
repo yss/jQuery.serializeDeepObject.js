@@ -17,6 +17,10 @@ Also you can add `data-value-type="number"` in the node for the type is not `num
     <input type="text" name="user[1].name" value="aoo" />
     <input type="checkbox" name="school" value="MIT" checked /> 
     <input type="radio" name="sex" data-value-type="number" value="0" checked />
+    <select name="city" data-value-type="number">
+        <option value="1">city1</option>
+        <option value="2">city2</option>
+    </select>
 </form>
 <script src="jQuery.serializeDeepObject.js"></script>
 console.log($(form).eq(0).serializeDeepObject());
@@ -37,6 +41,7 @@ The Output is:
         }
     ],
     school: ["MIT"],
-    sex: 0
+    sex: 0,
+    city: 1
 }
 ```
