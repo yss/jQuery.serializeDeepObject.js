@@ -1,12 +1,29 @@
 # jQuery.serializeDeepObject.js
 
-the upgrade of jQuery.serializeObject.js，specially for use mongodb, nosql database.
+the upgrade of jQuery.serializeObject.js，specially for the application use mongodb, nosql database.
 
 ## Note
 
 It is only support `number` when resolve the value.
 
-Also you can add `data-value-type="number"` in the node for the type is not `number`.
+Also you can add `data-value-type="number"` in the node attributes for the type is not `number`.
+
+### Such as
+
+``` html
+<!-- Normal -->
+<input type="cityId" name="cityId" value="1" step="any" />
+
+<!-- Other -->
+<input type="hidden" name="cityId" data-value-type="number" value="1" />
+<select name="country" data-value-type="number"><option value="1">china</option></select>
+
+<input type="radio" name="sex" data-value-type="number" value="0" /> man
+<input type="radio" name="sex" data-value-type="number" value="1" /> female
+
+<input type="checkbox" name="scores" data-value-type="number" value="50" /> 50
+<input type="checkbox" name="scores" data-value-type="number" value="60" /> 60
+```
 
 ## Example
 
@@ -45,3 +62,9 @@ The Output is:
     city: 1
 }
 ```
+
+## TODO
+
+1. More value-type support and extended. such as type="date" => timestamp.
+2. Transfer type="date" width type="time" => type="datetime".
+3. And else? I am thinking...

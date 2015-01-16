@@ -1,6 +1,6 @@
 /**
  * for complex data structures.
- * specially, for some application use mongodb.
+ * specially, for the application use mongodb.
  */
 (function($) {
 
